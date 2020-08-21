@@ -4,14 +4,17 @@ import (
 	"context"
 
 	"github.com/gomodule/redigo/redis"
-	newrelic "github.com/newrelic/go-agent"
+	"github.com/newrelic/go-agent/v3/newrelic"
 )
 
 // Pool is an interface for representing a pool of Redis connections
 type Pool interface {
 	GetContext(ctx context.Context) (redis.Conn, error)
+	Get() redis.Conn
+	Close() error
 }
 
+// Wrap returns a wrappedPool that can be used like a normal redis Pool, but sends segments to new relic
 func Wrap(p Pool, opts ...Option) Pool {
 	return &wrappedPool{
 		Pool: p,
@@ -32,8 +35,16 @@ func (p *wrappedPool) GetContext(ctx context.Context) (conn redis.Conn, err erro
 
 	nrtx := newrelic.FromContext(ctx)
 	if nrtx != nil {
-		conn = wrapConn(conn, nrtx, p.cfg)
+		return wrapConn(conn, nrtx, p.cfg), nil
 	}
 
 	return
+}
+
+func (p *wrappedPool) Get() redis.Conn {
+	return p.Pool.Get()
+}
+
+func (p *wrappedPool) Close() error {
+	return p.Pool.Close()
 }

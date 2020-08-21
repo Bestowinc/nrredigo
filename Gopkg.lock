@@ -2,6 +2,20 @@
 
 
 [[projects]]
+  digest = "1:02c7a8570f619bdb5620e8f6a16407455c8e63433d8a9e829f618813dc7f89a5"
+  name = "github.com/golang/protobuf"
+  packages = [
+    "proto",
+    "ptypes",
+    "ptypes/any",
+    "ptypes/duration",
+    "ptypes/timestamp",
+  ]
+  pruneopts = ""
+  revision = "d04d7b157bb510b1e0c10132224b616ac0e26b17"
+  version = "v1.4.2"
+
+[[projects]]
   digest = "1:dcf8316121302735c0ac84e05f4686e3b34e284444435e9a206da48d8be18cb1"
   name = "github.com/gomodule/redigo"
   packages = [
@@ -13,27 +27,175 @@
   version = "v2.0.0"
 
 [[projects]]
-  digest = "1:740eceac63d29a55061c4278edfa4e713d2c13c82440d5de4d37b5fdcb540b1d"
+  digest = "1:2195231f5ec859dd4564cb096da1d0e3c2380c1834709810b4a6d330a7c782c9"
   name = "github.com/newrelic/go-agent"
   packages = [
-    ".",
-    "internal",
-    "internal/cat",
-    "internal/jsonx",
-    "internal/logger",
-    "internal/sysinfo",
-    "internal/utilization",
+    "v3/internal",
+    "v3/internal/cat",
+    "v3/internal/com_newrelic_trace_v1",
+    "v3/internal/jsonx",
+    "v3/internal/logger",
+    "v3/internal/sysinfo",
+    "v3/internal/utilization",
+    "v3/newrelic",
   ]
   pruneopts = ""
-  revision = "a138039206f5b43233e37885306a4dfbdd20e5ce"
-  version = "v2.2.0"
+  revision = "0a47b5f46a812fcf2ce90f4fd3401394b00694d5"
+  version = "v3.8.1"
+
+[[projects]]
+  branch = "master"
+  digest = "1:9ee0e6bc20d85d179d19be321443639dc501a8c0ba1bac173261b57768063e79"
+  name = "golang.org/x/net"
+  packages = [
+    "http/httpguts",
+    "http2",
+    "http2/hpack",
+    "idna",
+    "internal/timeseries",
+    "trace",
+  ]
+  pruneopts = ""
+  revision = "3edf25e44fccea9e11b919341e952fca722ef460"
+
+[[projects]]
+  branch = "master"
+  digest = "1:fb23a5065850dfcc1a9706f730901c829747f8c438192ee9d103b5841039f8bb"
+  name = "golang.org/x/sys"
+  packages = [
+    "internal/unsafeheader",
+    "unix",
+  ]
+  pruneopts = ""
+  revision = "fda516888d292084949c284313e463073fc40876"
+
+[[projects]]
+  digest = "1:fccda34e4c58111b1908d8d69bf8d57c41c8e2542bc18ec8cd38c4fa21057f71"
+  name = "golang.org/x/text"
+  packages = [
+    "collate",
+    "collate/build",
+    "internal/colltab",
+    "internal/gen",
+    "internal/language",
+    "internal/language/compact",
+    "internal/tag",
+    "internal/triegen",
+    "internal/ucd",
+    "language",
+    "secure/bidirule",
+    "transform",
+    "unicode/bidi",
+    "unicode/cldr",
+    "unicode/norm",
+    "unicode/rangetable",
+  ]
+  pruneopts = ""
+  revision = "23ae387dee1f90d29a23c0e87ee0b46038fbed0e"
+  version = "v0.3.3"
+
+[[projects]]
+  branch = "master"
+  digest = "1:2d04439fa83b3bba64086df76d0f7ead8f20c7d9ea1265de87606a1d84f87a0c"
+  name = "google.golang.org/genproto"
+  packages = ["googleapis/rpc/status"]
+  pruneopts = ""
+  revision = "f69a88009b70a94c67e3910bf1663f5df9fbfc6d"
+
+[[projects]]
+  digest = "1:4a9317c3b053f9baf9cc32eb3628675f042b81ddbae447b6612ecf2bd92f7725"
+  name = "google.golang.org/grpc"
+  packages = [
+    ".",
+    "attributes",
+    "backoff",
+    "balancer",
+    "balancer/base",
+    "balancer/grpclb/state",
+    "balancer/roundrobin",
+    "binarylog/grpc_binarylog_v1",
+    "codes",
+    "connectivity",
+    "credentials",
+    "credentials/internal",
+    "encoding",
+    "encoding/proto",
+    "grpclog",
+    "internal",
+    "internal/backoff",
+    "internal/balancerload",
+    "internal/binarylog",
+    "internal/buffer",
+    "internal/channelz",
+    "internal/credentials",
+    "internal/envconfig",
+    "internal/grpclog",
+    "internal/grpcrand",
+    "internal/grpcsync",
+    "internal/grpcutil",
+    "internal/resolver/dns",
+    "internal/resolver/passthrough",
+    "internal/serviceconfig",
+    "internal/status",
+    "internal/syscall",
+    "internal/transport",
+    "keepalive",
+    "metadata",
+    "peer",
+    "resolver",
+    "serviceconfig",
+    "stats",
+    "status",
+    "tap",
+  ]
+  pruneopts = ""
+  revision = "bde0263672f027525e2950992a4c7db7af572b59"
+  version = "v1.31.0"
+
+[[projects]]
+  digest = "1:0d049ff01749ce1d6092c85cb90a02dfdb3b401939b13415b7e608f36bc8ecee"
+  name = "google.golang.org/protobuf"
+  packages = [
+    "encoding/prototext",
+    "encoding/protowire",
+    "internal/descfmt",
+    "internal/descopts",
+    "internal/detrand",
+    "internal/encoding/defval",
+    "internal/encoding/messageset",
+    "internal/encoding/tag",
+    "internal/encoding/text",
+    "internal/errors",
+    "internal/fieldsort",
+    "internal/filedesc",
+    "internal/filetype",
+    "internal/flags",
+    "internal/genid",
+    "internal/impl",
+    "internal/mapsort",
+    "internal/pragma",
+    "internal/set",
+    "internal/strs",
+    "internal/version",
+    "proto",
+    "reflect/protoreflect",
+    "reflect/protoregistry",
+    "runtime/protoiface",
+    "runtime/protoimpl",
+    "types/known/anypb",
+    "types/known/durationpb",
+    "types/known/timestamppb",
+  ]
+  pruneopts = ""
+  revision = "3f7a61f89bb6813f89d981d1870ed68da0b3c3f1"
+  version = "v1.25.0"
 
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
   input-imports = [
     "github.com/gomodule/redigo/redis",
-    "github.com/newrelic/go-agent",
+    "github.com/newrelic/go-agent/v3/newrelic",
   ]
   solver-name = "gps-cdcl"
   solver-version = 1
