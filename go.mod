@@ -1,4 +1,4 @@
-module github.com/izumin5210/nrredigo
+module github.com/Bestowinc/nrredigo
 
 go 1.14
 
