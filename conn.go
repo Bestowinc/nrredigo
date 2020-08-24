@@ -4,10 +4,10 @@ import (
 	"strings"
 
 	"github.com/gomodule/redigo/redis"
-	newrelic "github.com/newrelic/go-agent"
+	"github.com/newrelic/go-agent/v3/newrelic"
 )
 
-func wrapConn(c redis.Conn, txn newrelic.Transaction, cfg *Config) redis.Conn {
+func wrapConn(c redis.Conn, txn *newrelic.Transaction, cfg *Config) redis.Conn {
 	return &wrappedConn{
 		Conn: c,
 		txn:  txn,
@@ -17,7 +17,7 @@ func wrapConn(c redis.Conn, txn newrelic.Transaction, cfg *Config) redis.Conn {
 
 type wrappedConn struct {
 	redis.Conn
-	txn newrelic.Transaction
+	txn *newrelic.Transaction
 	cfg *Config
 }
 
@@ -57,7 +57,7 @@ func (c *wrappedConn) Receive() (interface{}, error) {
 
 func (c *wrappedConn) createSegment(cmdName string) newrelic.DatastoreSegment {
 	return newrelic.DatastoreSegment{
-		StartTime:    newrelic.StartSegmentNow(c.txn),
+		StartTime:    c.txn.StartSegmentNow(),
 		Product:      newrelic.DatastoreRedis,
 		Operation:    strings.ToLower(cmdName),
 		Host:         c.cfg.Host,

@@ -1,8 +1,8 @@
-module github.com/izumin5210/nrredigo
+module github.com/Bestowinc/nrredigo
 
-go 1.13
+go 1.14
 
 require (
 	github.com/gomodule/redigo v2.0.0+incompatible
-	github.com/newrelic/go-agent v2.2.0+incompatible
+	github.com/newrelic/go-agent/v3 v3.8.1
 )
